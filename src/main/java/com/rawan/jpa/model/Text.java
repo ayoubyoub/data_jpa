@@ -16,5 +16,6 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Text extends Resource {
-    private String content;
+
+  private String content;
 }

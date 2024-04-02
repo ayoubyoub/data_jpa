@@ -1,7 +1,5 @@
 package com.rawan.jpa.model;
 
-import java.util.List;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +10,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,19 +23,22 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class Course {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
-private String title;
-private String description;
 
-@ManyToMany(cascade = CascadeType.ALL)
-@JoinTable(
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
+  private String title;
+  private String description;
+
+  @ManyToMany(cascade = CascadeType.ALL)
+  @JoinTable(
     name = "authors_courses",
     joinColumns = { @JoinColumn(name = "author_id") },
     inverseJoinColumns = { @JoinColumn(name = "course_id") }
   )
-private List<Author> authors;
-@OneToMany(mappedBy = "course")
-private List<Section> sections;
+  private List<Author> authors;
+
+  @OneToMany(mappedBy = "course")
+  private List<Section> sections;
 }

@@ -16,5 +16,6 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Video extends Resource {
-    private String length;
+
+  private String length;
 }

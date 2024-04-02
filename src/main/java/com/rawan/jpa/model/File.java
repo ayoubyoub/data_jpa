@@ -16,5 +16,6 @@ import lombok.Setter;
 @Setter
 @Getter
 public class File extends Resource {
-    private String type;
+
+  private String type;
 }
